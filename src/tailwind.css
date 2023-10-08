@@ -1,0 +1,469 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  
+  html, body {
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    overflow: hidden;
+    height: 100%;
+  }
+
+@keyframes movingStars {
+    0% {
+      transform: translateY(0%);
+    }
+    100% {
+      transform: translateY(30%);
+    }
+  }
+  
+  .star {
+    background-color: white;
+    width: 1.5px;
+    height: 1.5px;
+    border-radius: 50%;
+    position: absolute;
+    animation: movingStars 1s linear infinite, twinkling 1s infinite alternate;
+  }
+  
+  .sun {
+    width: 70%;
+    position: relative;
+    background-color: #dfb11d;  /* Gold color for the sun */
+    border-radius: 50%;  /* Make it a circle */
+    position: absolute;
+    top: 50%;
+    left: -18%;
+    transform: translate(-50%, -50%);  /* Center the sun in the container */
+    transition: transform 0.3s;  /* Smooth hover effect */
+    cursor: pointer;  /* Show a hand cursor on hover */
+    background-image: radial-gradient(circle at center, #f07706, #e79a27, #f5e796);
+    border-width: 7px;
+    border-color: rgb(240, 222, 165);
+  }
+  
+  .sun:hover {
+    transform: translate(-50%, -50%) scale(1.1);  /* Slightly scale up the sun on hover */
+  }
+
+  .sun::before {
+    content: "";
+    display: block;
+    padding-top: 100%;  /* This sets the height equal to the width */
+  }  
+  
+  .mercury {
+    width: 5%;
+    position: relative;
+    background-color: #dfb11d;  /* Gold color for the sun */
+    border-radius: 50%;  /* Make it a circle */
+    position: absolute;
+    top: 50%;
+    left: 21%;
+    transform: translate(-50%, -50%);  /* Center the sun in the container */
+    transition: transform 0.3s;  /* Smooth hover effect */
+    cursor: pointer;  /* Show a hand cursor on hover */
+    background-image: radial-gradient(circle at center, #a59c94, #35332f, #77756c);
+    border-width: 3px;
+    border-color: rgb(145, 144, 144);
+  }
+  
+  .mercury:hover {
+    transform: translate(-50%, -50%) scale(1.1);  /* Slightly scale up the sun on hover */
+  }
+
+  .mercury::before {
+    content: "";
+    display: block;
+    padding-top: 100%;  /* This sets the height equal to the width */
+  }  
+  
+  .venus {
+    width: 7%;
+    position: relative;
+    background-color: #ad8910;  /* Gold color for the sun */
+    border-radius: 50%;  /* Make it a circle */
+    position: absolute;
+    top: 50%;
+    left: 28%;
+    transform: translate(-50%, -50%);  /* Center the sun in the container */
+    transition: transform 0.3s;  /* Smooth hover effect */
+    cursor: pointer;  /* Show a hand cursor on hover */
+    background-image: radial-gradient(circle at center, #684f09, #a17419, #ddc582);
+    border-width: 5px;
+    border-color: rgb(172, 124, 36);
+  }
+  
+  .venus:hover {
+    transform: translate(-50%, -50%) scale(1.1);  /* Slightly scale up the sun on hover */
+  }
+
+  .venus::before {
+    content: "";
+    display: block;
+    padding-top: 100%;  /* This sets the height equal to the width */
+  }  
+  
+  .earth {
+    width: 8%;
+    position: relative;
+    cursor: pointer;  /* Show a hand cursor on hover */
+    border-radius: 50%;  /* Make it a circle */
+    position: absolute;
+    cursor: pointer; 
+    top: 50%;
+    left: 36%;
+    transform: translate(-50%, -50%);  /* Center the sun in the container */
+    transition: transform 0.3s;  /* Smooth hover effect */
+    background-image: 
+    radial-gradient(circle at 30% 30%, #32CD32, transparent 40%),  /* Simulate green landmass */
+    radial-gradient(circle at 70% 80%, #32CD32, transparent 40%),  /* Another green landmass */
+    radial-gradient(circle at center, #0082FC, #00457C);  /* Base blue color for the ocean */
+  }
+
+  .earth:hover {
+    transform: translate(-50%, -50%) scale(1.1);  /* Slightly scale up the sun on hover */
+  }
+  
+  .earth::before {
+    content: "";
+    display: block;
+    padding-top: 100%;  /* This sets the height equal to the width */
+  }
+
+  .moon {
+    width: 2%;  /* Assuming Mars and Venus are of similar size for this model */
+    position: relative;
+    background-color: #b0413e;  /* Base red color for Mars */
+    border-radius: 50%;
+    position: absolute;
+    top: 39%;  /* Adjust this if you want Mars to be in a different vertical position */
+    left: 36%;  /* Adjust this for the horizontal position of Mars on the screen */
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s;
+    cursor: pointer;
+    background-image: radial-gradient(circle at center, #494848, #818181, #969696);  /* Gradient to simulate Mars surface */
+    border-width: 3px;
+    border-color: rgb(189, 186, 186);  /* Slightly different border color for Mars */
+}
+
+.moon:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.moon::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+  
+  .mars {
+    width: 6%;  /* Assuming Mars and Venus are of similar size for this model */
+    position: relative;
+    background-color: #b0413e;  /* Base red color for Mars */
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;  /* Adjust this if you want Mars to be in a different vertical position */
+    left: 44%;  /* Adjust this for the horizontal position of Mars on the screen */
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s;
+    cursor: pointer;
+    background-image: radial-gradient(circle at center, #8a3332, #b74b48, #e57067);  /* Gradient to simulate Mars surface */
+    border-width: 5px;
+    border-color: rgb(185, 65, 62);  /* Slightly different border color for Mars */
+}
+
+.mars:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.mars::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+.asteroid-belt {
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    width: 4%; /* Adjust based on your layout */
+    height: 100%; /* Adjust based on your layout */
+    transform: translate(-50%, -50%);
+    overflow: hidden;  
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .asteroid {
+    background-color: #c5c5c5;
+    border-radius: 50%;
+    position: absolute;
+    animation: floatAsteroid linear infinite alternate;
+  }
+  
+  @keyframes floatAsteroid {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(20px); }  
+  }
+  
+  .asteroid-belt:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.jupiter {
+    width: 12.5%;
+    position: relative;
+    background-color: #f4a461;  /* Base color for Jupiter */
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 58.5%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s;
+    cursor: pointer;
+    background-image: radial-gradient(circle at center, #e3984f, #d4823b, #b16b29);  /* Gradient to simulate Jupiter's surface */
+    border-width: 5px;
+    border-color: #a56227;  /* Border color for Jupiter */
+}
+
+
+.jupiter:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.jupiter::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+/* Saturn's main ring */
+.jupiter::after {
+    content: "";
+    position: absolute;
+    width: 160%;  /* Adjust for the desired width of the ring */
+    padding-top: 5%;  /* Maintain the ring's aspect ratio */
+    background-color: #ac9478;  /* Color of the ring */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-50deg);  /* Slight rotation to give it a 3D effect */
+    border-radius: 50%;
+    z-index: -1;  /* Place the ring behind Saturn */
+    opacity: 70%;
+}
+
+.saturn {
+    width: 11%;
+    position: relative;
+    background-color: #f4e1b5;  /* Base color for Saturn */
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 71.5%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s;
+    cursor: pointer;
+    background-image: radial-gradient(circle at center, #f4e1b5, #dab084, #c19567);  /* Gradient to simulate Saturn's surface */
+    border-width: 5px;
+    border-color: #c19567;  /* Border color for Saturn */
+}
+
+.saturn:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.saturn::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+/* Saturn's main ring */
+.saturn::after {
+    content: "";
+    position: absolute;
+    width: 180%;  /* Adjust for the desired width of the ring */
+    padding-top: 10%;  /* Maintain the ring's aspect ratio */
+    background-color: #ac9478;  /* Color of the ring */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-50deg);  /* Slight rotation to give it a 3D effect */
+    border-radius: 50%;
+    z-index: -1;  /* Place the ring behind Saturn */
+    opacity: 70%;
+}
+
+.uranus {
+    width: 9.5%;
+    position: relative;
+    background-color: #92cddc;  /* Base color for Uranus */
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 83%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s;
+    cursor: pointer;
+    background-image: radial-gradient(circle at center, #92cddc, #79a7c4, #5f8aa9);  /* Gradient to simulate Uranus's surface */
+    border-width: 5px;
+    border-color: #5f8aa9;  /* Border color for Uranus */
+}
+
+.uranus:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.uranus::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+.neptune {
+    width: 9%;
+    position: relative;
+    background-color: #446688;  /* Base color for Neptune */
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 93%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s;
+    cursor: pointer;
+    background-image: radial-gradient(circle at center, #446688, #335577, #224466);  /* Gradient to simulate Neptune's surface */
+    border-width: 5px;
+    border-color: #224466;  /* Border color for Neptune */
+}
+
+.neptune:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.neptune::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+.fixed-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #8d8a8a; /* bg-gray-800 */
+  color: #ffffff; /* text-white */
+  padding: 0.5rem; /* p-2 */
+  font-weight: 600;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  max-height: 90%;  /* 你可以根據需要調整這個值 */
+  max-width: 40%;  /* 你可以根據需要調整這個值 */
+  overflow-y: auto;
+  padding-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal Close Button */
+.modal-close {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #f56565;
+  color: white;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover {
+  background-color: #e53e3e;
+}
+
+.planet-image {
+  padding-top: 65%;
+  width: 80%;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.temp {
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-bottom: 1px solid #818386;
+  padding-bottom: 5px;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.info {
+  font-size: 1.5rem;
+  font-weight: 300;
+  padding-top: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.desc {
+  font-size: 1rem;
+  font-weight: 200;
+  padding-top: 5px;
+  max-width: 80%;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo {
+  font-size: 1rem;
+  font-weight: 100;
+  padding-top: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo:hover {
+  text-decoration-line: underline;
+}
+
+.planet {
+  font-size: 3rem;
+  font-weight: 600;
+}
