@@ -12,6 +12,9 @@ import uranusImage from './assets/uranus.jpg';
 import neptuneImage from './assets/neptune.jpg';
 import moonImage from './assets/moon.jpg';
 import sunSound from './assets/sun.wav';
+import asteroidimage from './assets/asteroid.jpg';
+import tmimage from './assets/travel_mars.jpg';
+import vall from './assets/valles.jpg';
 
 function App() {
   const [selectedPlanet, setSelectedPlanet] = useState(null);
@@ -105,6 +108,20 @@ function App() {
       description: "The eighth and farthest known planet from the Sun, Neptune is often dubbed the \"Blue Giant\" due to its deep azure hue. As one of the Solar System's four gas giants, Neptune is primarily composed of hydrogen and helium, with trace amounts of methane that give the planet its distinct blue color. Its atmosphere is marked by strong winds, some of the fastest in the solar system, with speeds reaching up to 2,100 kilometers per hour (1,304 miles per hour). These winds whip around the planet, forming massive storm systems and dark spots, similar to Jupiter's Great Red Spot but more transient in nature. Beneath its gaseous outer layer, Neptune may have an \"icy\" mantle made up of water, ammonia, and methane. The extreme pressures within this layer might give rise to oceans of liquid diamond with solid diamond icebergs. As for its environment, Neptune's average temperature hovers around a frigid -214°C (-353°F), making it one of the coldest planets in our Solar System. Its hostile atmosphere, combined with intense pressures and extreme temperatures, renders Neptune an inhospitable realm for human exploration or habitation.",
       photo: 'PIA02245: Neptune\'s Blue-green Atmosphere - 2000',
       link: 'https://photojournal.jpl.nasa.gov/targetFamily/Neptune'
+    },
+    Asteroid:{
+      image: asteroidimage,
+      description: "The asteroid belt is a region in the solar system located between the orbits of Mars and Jupiter, filled with hundreds of thousands of asteroids and some other celestial bodies. It provides valuable clues about the evolution of the solar system and serves as a target for space exploration. Scientists study the composition and motion of asteroids in the asteroid belt to gain deeper insights into the formation and development of the solar system."
+    },
+    Mars_Adventure:{
+      image: tmimage,
+      info: "Embark on the Ultimate Martian Adventure!",
+      description: "Experience the Red Planet like never before as you journey to Mars, Earth's enigmatic neighbor. Get ready to witness stunning Martian landscapes, explore ancient crater formations, and uncover the mysteries of this captivating world.\nJoin us for an unforgettable Martian expedition that will leave you awe-inspired. Don't miss the opportunity to be a part of this historic adventure – the future of Mars exploration awaits you!"
+    },
+    Explore_Valles:{
+      image: vall,
+      info: "Discover the Depths of Valles Marineris",
+      description: "Prepare to embark on a breathtaking journey to Valles Marineris, the deepest canyon in our solar system. As you explore this remarkable geological wonder, you'll be captivated by its vast expanse and the mysteries it holds.\nJoin us for an expedition like no other and dive into the heart of Valles Marineris. Witness its towering cliffs, intricate network of valleys, and ancient river channels that tell the story of Mars' geological past.\nGet ready to be amazed by the grandeur of Valles Marineris and uncover the secrets hidden within its rugged terrain. Your adventure of exploration awaits!"
     }
   };
 
@@ -131,10 +148,17 @@ function App() {
   const handleCloseModal = () => {
     setSelectedPlanet(null);
   };  
+
+  const handletravel = () => {
+    const poll = Math.floor(Math.random() * 2);
+    if(poll == 0) handlePlanetClick("Mars_Adventure")
+    else if(poll == 1) handlePlanetClick("Explore_Valles")
+  };  
   
 
   return (
     <div className="">
+      
       {selectedPlanet && (
         <div className="modal-overlay">
           <div className="modal-content">
@@ -149,6 +173,7 @@ function App() {
         </div>
       )}
       <div className="fixed-footer">
+      
         WA automation@Taichung NASA Hackathon 2023
       </div>
       {stars.map(star => (
@@ -164,26 +189,33 @@ function App() {
       <button className="earth" onClick={() => handlePlanetClick("Earth")}></button>
       <button className="moon" onClick={() => handlePlanetClick("Moon")}></button>
       <button className="mars" onClick={() => handlePlanetClick("Mars")}></button>
-      <div className="asteroid-belt">
-        {Array.from({ length: 350 }).map((_, index) => (
-          <div 
-            key={index} 
-            className="asteroid"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDuration: `${2 + Math.random() * 5}s`,
-              width: `${2 + Math.random() * 3}px`,
-              height: `${2 + Math.random() * 3}px`
-            }}
-          ></div>
-        ))}
-      </div>
+      <button className="Asteroid" onClick={() => handlePlanetClick("Asteroid")}>
+        <div className="asteroid-belt">
+          {Array.from({ length: 350 }).map((_, index) => (
+            <div 
+              key={index} 
+              className="asteroid"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDuration: `${2 + Math.random() * 5}s`,
+                width: `${2 + Math.random() * 3}px`,
+                height: `${2 + Math.random() * 3}px`
+              }}
+            ></div>
+          ))}
+        </div>
+      </button>
       <button className="jupiter" onClick={() => handlePlanetClick("Jupiter")}></button>
       <button className="saturn" onClick={() => handlePlanetClick("Saturn")}></button>
       <button className="uranus" onClick={() => handlePlanetClick("Uranus")}></button>
       <button className="neptune" onClick={() => handlePlanetClick("Neptune")}></button>
+      
+      <div className="container">
+        <button className="travel" onClick={() => handletravel()}> Travel! </button>
+      </div>
     </div>
+    
   );
 }
 

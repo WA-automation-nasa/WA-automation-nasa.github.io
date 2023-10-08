@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.travel {
+    position: absolute;
+    background-color: #3498db;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 400px;
+    left: 1100px;
+}
